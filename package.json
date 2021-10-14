@@ -1,0 +1,18 @@
+{
+  "name": "veritone-assignment",
+  "version": "1.0.0",
+  "description": "Compare two commits given some parameters",
+  "main": "compare.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "assignment"
+  ],
+  "author": "Leigh Villarroel",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.23.0",
+    "dotenv": "^10.0.0"
+  }
+}
