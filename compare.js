@@ -20,16 +20,16 @@ require('dotenv').config();
 //Need to pass in process.env.TOKEN as a Header Authroization
 
  var axios = require('axios');
+ var ghAPI = 'https://api.github.com';
 
 
 
 
-//Get Repo commit calls and compare two Commits
+//Get Repo commit calls using GitHub API
 
-// //https://api.github.com/repos/${owner}/${reponame}/compare/{basehead}
+// //https://api.github.com/repos/${owner}/${repo}/commits
 // let owner = 'geerlingguy';
 // let repo = 'ansible-for-devops';
-// let basehead = 'basehead';
 
 // axios.get(`https://api.github.com/repos/${owner}/${repo}/commits`, { headers: { 'Authorization': `token ${process.env.TOKEN}` } })
 //    .then(function (response) {
@@ -58,18 +58,20 @@ require('dotenv').config();
 //    })
 
 
-//Get Repo commit calls and compare two Commits
+//Get Repo ccompare two Commits
+//Need to get base commit and head commit values.
+
 
 //https://api.github.com/repos/${owner}/${reponame}/compare/{basehead}
 let owner = 'geerlingguy';
 let repo = 'ansible-for-devops';
-let basehead = 'basehead';
+let basehead = 'basehead'; // the names of the branch names
 
-axios.get(`https://api.github.com/repos/${owner}/${repo}/commits`, { headers: { 'Authorization': `token ${process.env.TOKEN}` } })
+axios.get(`https://api.github.com/repos/${owner}/${repo}/compare/${basehead}`, { headers: { 'Authorization': `token ${process.env.TOKEN}` } })
    .then(function (response) {
     if (response.status == 200 ) {
       //Put response.data [Object]
-      var commits = response.data;
+      var commits = response.base_commit;
       console.log(commits)
       //Traverse object
       // for (let [key,obj] of Object.entries(commits)) {
