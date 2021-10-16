@@ -19,32 +19,81 @@ require('dotenv').config();
 
 //Need to pass in process.env.TOKEN as a Header Authroization
 
-//Axios for call
  var axios = require('axios');
 
 
-// A Sample Zen call to GitHub
-//  axios.get('https://api.github.com/zen', { headers: { 'Authorization': `${process.env.TOKEN}` } })
+
+
+//Get Repo commit calls and compare two Commits
+
+// //https://api.github.com/repos/${owner}/${reponame}/compare/{basehead}
+// let owner = 'geerlingguy';
+// let repo = 'ansible-for-devops';
+// let basehead = 'basehead';
+
+// axios.get(`https://api.github.com/repos/${owner}/${repo}/commits`, { headers: { 'Authorization': `token ${process.env.TOKEN}` } })
 //    .then(function (response) {
-//      console.log(response);
+//     if (response.status == 200 ) {
+//       //Put response.data [Object]
+//       var commits = response.data;
+//       console.log(commits)
+//       //Traverse object
+//       // for (let [key,obj] of Object.entries(commits)) {
+        
+//       //   for (let [key,value] of Object.entries(obj)) {
+//       //      console.log(`${key}: ${value}`)
+//       //     }
+//       // }
+      
+//       //Determine the head and base commit respectively
+
+//     } 
+//     //Not found
+    
+
 //    })
 //    .catch(function (error) {
 //      //Handle error
-//      console.log(error);
+//      console.log('We could not find any information with the parameters provided' + error);
 //    })
 
 
-//Get Branch Repo calls
-//https://api.github.com/repos/${owner}/${reponame}/commits
+//Get Repo commit calls and compare two Commits
 
+//https://api.github.com/repos/${owner}/${reponame}/compare/{basehead}
 let owner = 'geerlingguy';
 let repo = 'ansible-for-devops';
+let basehead = 'basehead';
 
-axios.get(`https://api.github.com/repos/${owner}/${repo}/commits`, { headers: { 'Authorization': `${process.env.TOKEN}` } })
+axios.get(`https://api.github.com/repos/${owner}/${repo}/commits`, { headers: { 'Authorization': `token ${process.env.TOKEN}` } })
    .then(function (response) {
-     console.log(response);
+    if (response.status == 200 ) {
+      //Put response.data [Object]
+      var commits = response.data;
+      console.log(commits)
+      //Traverse object
+      // for (let [key,obj] of Object.entries(commits)) {
+        
+      //   for (let [key,value] of Object.entries(obj)) {
+      //      console.log(`${key}: ${value}`)
+      //     }
+      // }
+      
+      //Determine the head and base commit respectively
+
+    } 
+    //Not found
+    
+
    })
    .catch(function (error) {
      //Handle error
      console.log('We could not find any information with the parameters provided' + error);
    })
+
+
+
+
+// var head_commit = axios.get(
+
+// );
