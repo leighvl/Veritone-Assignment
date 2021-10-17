@@ -46,22 +46,24 @@ axios.get(`${ghAPI}/repos/${owner}/${repo}/tags`, { headers: { 'Authorization': 
     console.log(`${head_tag} & ${base_tag}`)
 
     // Do Second get here to compare the commits (Can optimize with Promise.all)
-    
+
+    //https://api.github.com/repos/${owner}/${reponame}/compare/{base}...{head}  where {base} and {head} are branch names/commits, oldest first
+      axios.get(`${ghAPI}/repos/${owner}/${repo}/compare/${base_tag}...${head_tag}`, { headers: { 'Authorization': `token ${process.env.TOKEN}` } })
+      .then( function (response) {
+        //Would this be the second get | put the compare code here
+        if (response.status == 200 ) {
+          console.log(response.data)
+          console.log('Work with this data')
+        }
+      }
+      )
   })
-  .then()
   .catch(function (error) {
          //Handle error
          console.log('We could not find any information with the parameters provided' + error);
        });
+  
 
-//and compare two Commits
-
-
-//Get Repo ccompare two Commits
-//Need to get base commit and head commit values.
-
-
-//https://api.github.com/repos/${owner}/${reponame}/compare/{base}...{head}  where {base} and {head} are branch names/commits, oldest first
 // let owner = 'geerlingguy';
 // let repo = 'ansible-for-devops';
 // let base = 'master'; //oldest branch
