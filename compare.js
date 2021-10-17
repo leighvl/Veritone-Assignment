@@ -45,7 +45,8 @@ axios.get(`${ghAPI}/repos/${owner}/${repo}/tags`, { headers: { 'Authorization': 
 
     console.log(`${head_tag} & ${base_tag}`)
 
-    // Do Second get here (Can optimize with Promise.all)
+    // Do Second get here to compare the commits (Can optimize with Promise.all)
+    
   })
   .then()
   .catch(function (error) {
@@ -54,36 +55,6 @@ axios.get(`${ghAPI}/repos/${owner}/${repo}/tags`, { headers: { 'Authorization': 
        });
 
 //and compare two Commits
-
-// //https://api.github.com/repos/${owner}/${reponame}/compare/{basehead}
-
-// let basehead = 'basehead';
-
-// axios.get(`https://api.github.com/repos/${owner}/${repo}/commits`, { headers: { 'Authorization': `token ${process.env.TOKEN}` } })
-//    .then(function (response) {
-//     if (response.status == 200 ) {
-//       //Put response.data [Object]
-//       var commits = response.data;
-//       console.log(commits)
-//       //Traverse object
-//       // for (let [key,obj] of Object.entries(commits)) {
-        
-//       //   for (let [key,value] of Object.entries(obj)) {
-//       //      console.log(`${key}: ${value}`)
-//       //     }
-//       // }
-      
-//       //Determine the head and base commit respectively
-
-//     } 
-//     //Not found
-    
-
-//    })
-//    .catch(function (error) {
-//      //Handle error
-//      console.log('We could not find any information with the parameters provided' + error);
-//    })
 
 
 //Get Repo ccompare two Commits
