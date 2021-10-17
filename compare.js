@@ -53,7 +53,7 @@ axios.get(`${ghAPI}/repos/${owner}/${repo}/tags`, { headers: { 'Authorization': 
         //Would this be the second get | put the compare code here
         if (response.status == 200 ) {
           console.log(response.data)
-          console.log('Work with this data')
+          //Work with commit   data  here
         }
       }
       )
