@@ -23,17 +23,14 @@ require('dotenv').config();
 
 
 //Get Repo commit tags
-//Need alternative header if TOKEN is not set
-
 const compareCommits = ( ghAPI = 'https://api.github.com' , owner, repo ) => {
           axios.get(`${ghAPI}/repos/${owner}/${repo}/tags`, { headers: { 'Authorization': `token ${process.env.TOKEN}` } })
             .then(function (response){
-              var tagsObject = response.data;
-              //console.log(tagsObject[Object.keys(tagsObject)[Object.keys(tagsObject).length - 1 ]])
+              var tagsObject = response.data;          
 
               //Get first(base) and last(head) entries in object
-              let head_tag = response.data[0].name
-              let base_tag = tagsObject[Object.keys(tagsObject)[Object.keys(tagsObject).length - 1 ]].name
+              let head_tag = response.data[0].name;
+              let base_tag = tagsObject[Object.keys(tagsObject)[Object.keys(tagsObject).length - 1 ]].name;
               
 
               console.log(`Found Head: ${head_tag} & Base: ${base_tag}`)
@@ -81,4 +78,4 @@ const compareCommits = ( ghAPI = 'https://api.github.com' , owner, repo ) => {
       };
 
 
-compareCommits(ghAPI, owner, repo)
+module.exports = compareCommits(ghAPI, owner, repo);

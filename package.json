@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Compare two commits given some parameters",
   "main": "compare.js",
-  "bin":"./compare.js",
+  "bin": "./compare.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.23.0",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "minimist": "^1.2.5"
   }
 }
