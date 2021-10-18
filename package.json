@@ -2,10 +2,10 @@
   "name": "veritone-assignment",
   "version": "1.0.0",
   "description": "Compare two commits given some parameters",
-  "main": "compare.js",
-  "bin": "./compare.js",
+  "main": "index.js",
+  "bin": "./index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./test/* --exit"
   },
   "keywords": [
     "assignment"
@@ -15,6 +15,11 @@
   "dependencies": {
     "axios": "^0.23.0",
     "dotenv": "^10.0.0",
-    "minimist": "^1.2.5"
+    "yargs": "^17.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "supertest": "^6.1.6"
   }
 }
