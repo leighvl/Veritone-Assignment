@@ -28,5 +28,5 @@ jobs:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_ORG: geerlingguy
           REPO: ansible-for-devops
-          HEAD_COMMIT: 2.0
-          BASE_COMMIT: 0.60
+          HEAD_COMMIT: '2.0'
+          BASE_COMMIT: '0.60'
