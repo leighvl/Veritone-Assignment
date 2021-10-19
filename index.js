@@ -21,10 +21,7 @@ const yargs = require('yargs')(process.argv.slice(2));
 
 // const { hideBin } = require('yargs/helpers');
 var argv =  yargs.argv
-           // .command('owner', 'Provides the owner in question')
-            //.command('repo', 'Provides the repository')
-            //.command('token', 'Github Personal Access Token')
-            //.argv 
+
 
 
 //Need to pass in process.env.TOKEN as a Header Authroization, other variables as well
@@ -42,7 +39,6 @@ var argv =  yargs.argv
  console.log(argv)
 
  //Do Checks on parameters passed, error if missing owner, repo or token
- //if (!argv.owner || )
 
 if (!token) {
   console.error('Missing token, exiting program');
@@ -56,7 +52,6 @@ if ( (base_tag > head_tag) || (!base_tag) || (!head_tag)) {
 
 }
 
-// ghAPI = 'https://api.github.com' , owner, repo 
 //Get Repo commit tags
 const compareCommits = () => {
         
@@ -69,7 +64,6 @@ const compareCommits = () => {
               //https://api.github.com/repos/${owner}/${reponame}/compare/{base}...{head}  where {base} and {head} are branch names/commits, oldest first
                 axios.get(`${ghAPI}/repos/${owner}/${repo}/compare/${base_tag}...${head_tag}`, { headers: { 'Authorization': `token ${token}` } })
                 .then( function (response) {
-                  //Would this be the second get | put the compare code here
                   if (response.status == 200 ) {
                     //Get list of commits messages via response.data.commits[count].commit.message
 
@@ -95,5 +89,5 @@ const compareCommits = () => {
 
       };
 
-//ghAPI, owner, repo
+
 module.exports.compare = compareCommits();
