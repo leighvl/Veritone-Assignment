@@ -11,7 +11,7 @@ describe('GET /repos', () => {
                           .set('User-Agent','request');
 
 
-          //console.log(response)
+          console.log(response)
           expect(response.status).to.eql(200);
 
       //expect
